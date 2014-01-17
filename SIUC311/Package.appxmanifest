@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="SIUCarbondale.SIU311" Publisher="CN=31BE8737-AC46-4AF3-A4B0-CDA651FE0757" Version="1.2.0.12" />
+  <Properties>
+    <DisplayName>SIU 311</DisplayName>
+    <PublisherDisplayName>Southern Illinois University Carbondale</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="SIUC311.App">
+      <Extensions>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="txtfiles">
+            <InfoTip>Text Files</InfoTip>
+            <EditFlags OpenIsSafe="true" />
+            <SupportedFileTypes>
+              <FileType>.txt</FileType>
+              <FileType>.png</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+        <Extension Category="windows.protocol">
+          <Protocol Name="siu311">
+            <Logo>Assets\Logo.png</Logo>
+            <DisplayName>SIU 311</DisplayName>
+          </Protocol>
+        </Extension>
+      </Extensions>
+      <m2:VisualElements DisplayName="SIU 311" Description="SIU 311" BackgroundColor="#660000" ForegroundText="light" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png">
+        <m2:DefaultTile>
+          <m2:ShowNameOnTiles>
+            <m2:ShowOn Tile="square150x150Logo" />
+          </m2:ShowNameOnTiles>
+        </m2:DefaultTile>
+        <m2:InitialRotationPreference>
+          <m2:Rotation Preference="landscape" />
+        </m2:InitialRotationPreference>
+        <m2:SplashScreen Image="Assets\SplashScreen.png" />
+      </m2:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="documentsLibrary" />
+    <Capability Name="internetClientServer" />
+    <Capability Name="privateNetworkClientServer" />
+    <Capability Name="videosLibrary" />
+    <Capability Name="picturesLibrary" />
+    <Capability Name="enterpriseAuthentication" />
+    <Capability Name="internetClient" />
+    <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="webcam" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
+</Package>
