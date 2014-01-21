@@ -1384,7 +1384,11 @@ namespace SIUC311
             if (ReportsListView.Items.Count > 0)
             {
                 StackPanel rsp = (StackPanel)((GridViewItem)((StackPanel)((ListView)sender).SelectedValue).Children[0]).Content;
-                await ShowReportPopup(((TextBlock)((StackPanel)rsp.Children[0]).Children[0]).Text, false);
+                try
+                {
+                    await ShowReportPopup(((TextBlock)((StackPanel)rsp.Children[0]).Children[0]).Text, false);
+                }
+                catch (System.ArgumentNullException) { }
             }
         }
 
