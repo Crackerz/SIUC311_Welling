@@ -559,33 +559,6 @@ namespace SIUC311
         /// <summary>
         /// 
         /// </summary>
-        private async void ShowVideo()
-        {
-            if (haveVideo == true)
-            {
-                CapturedVideoHolder.Visibility = Visibility.Collapsed;
-                if (appSettings.ContainsKey(Constants.videoKey))
-                {
-                    object filePath;
-                    if (appSettings.TryGetValue(Constants.videoKey, out filePath) && filePath.ToString() != "")
-                    {
-                        await ReloadVideo(filePath.ToString());
-                    }
-                }
-            }
-            else
-            {
-                CapturedVideo.Visibility = Visibility.Collapsed;
-                CapturedVideoHolder.Visibility = Visibility.Visible;
-            }
-        }
-
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="i"></param>
         private void UpdateSortOrderTextBox(int i)
         {
@@ -643,7 +616,6 @@ namespace SIUC311
                     {
                         bitmapImage.SetSource(fileStream);
                     }
-                    CapturedPhoto.Source = bitmapImage;
                     ReportFormPhoto.Source = bitmapImage;
 
                     // Store the file path in Application Data
@@ -662,44 +634,6 @@ namespace SIUC311
             havePhoto = true;
             // open the Popup if it not open already
             if (!ReportFormPopup.IsOpen) { ReportFormPopup.IsOpen = true; }
-        }
-
-        /// <summary>
-        /// button handler to capture video
-        /// Invokes camera controls to take video
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private async void CaptureVideo_Click(object sender, RoutedEventArgs e)
-        {
-            //NotifyUser("Attempting to take video", NotifyType.StatusMessage);            
-            try
-            {
-                // Using Windows.Media.Capture.CameraCaptureUI API to capture a photo
-                CameraCaptureUI dialog = new CameraCaptureUI();
-                dialog.VideoSettings.Format = CameraCaptureUIVideoFormat.Mp4;
-
-                StorageFile file = await dialog.CaptureFileAsync(CameraCaptureUIMode.Video);
-                if (file != null)
-                {
-                    IRandomAccessStream fileStream = await file.OpenAsync(FileAccessMode.Read);
-                    CapturedVideo.SetSource(fileStream, "video/mp4");
-
-                    // Store the file path in Application Data
-                    appSettings[Constants.videoKey] = file.Path;
-                }
-                else
-                {
-                    NotifyUser("No video captured.", NotifyType.StatusMessage);
-                }
-            }
-            catch (Exception)
-            {
-                NotifyUser("ERROR RECORDING VIDEO", NotifyType.ErrorMessage);
-            }
-            GetGeolocation();
-            haveVideo = true;
-            ShowVideo();
         }
 
         /// <summary>
@@ -1984,8 +1918,6 @@ namespace SIUC311
             ControlsBlock.Text = "Controls";
             ListBlock.Text = "Reports";
             MapBlock.Text = "Map";
-            PhotoBlock.Text = "Photo";
-            VideoBlock.Text = "Video";
             QueuedListBlock.Text = "Queue";
 
             //Form
@@ -2643,7 +2575,7 @@ namespace SIUC311
                     if (rmo != null)
                     {
                         ReportStatus.Text = rmo.ReportStatus;
-                        ReportPriority.Text = rmo.ReportPriority;
+                       ReportPriority.Text = rmo.ReportPriority;
                     }
                 }
                 else { }
@@ -2737,37 +2669,13 @@ namespace SIUC311
             DescriptionTextbox.Text = "";
             LocationTextbox.Text = "";
 
-            CapturedPhoto.Source = new BitmapImage(new Uri("ms-appx:///Assets/ImagePlaceHolder.png"));
             ReportFormPhoto.Source = new BitmapImage(new Uri("ms-appx:///Assets/ImagePlaceHolder.png"));
-            CapturedVideo.Source = null;
 
             havePhoto = false;
             haveVideo = false;
 
             appSettings.Remove(Constants.videoKey);
             appSettings.Remove(Constants.photoKey);
-        }
-
-        /// <summary>
-        /// Loads the video from file path
-        /// </summary>
-        /// <param name="filePath">The path to load the video from</param>
-        private async Task ReloadVideo(String filePath)        
-        {
-            CapturedVideo.Visibility = Visibility.Visible;
-            try
-            {
-                StorageFile file = await StorageFile.GetFileFromPathAsync(filePath);
-                IRandomAccessStream fileStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
-                CapturedVideo.SetSource(fileStream, "video/mp4");
-
-                //NotifyUser("Video reloaded", NotifyType.StatusMessage);
-            }
-            catch (Exception)
-            {
-                appSettings.Remove(Constants.videoKey);
-                //NotifyUser("ERROR LOADING VIDEO", NotifyType.ErrorMessage);
-            }
         }
         #endregion
 

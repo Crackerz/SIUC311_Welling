@@ -24,13 +24,6 @@
 
         <Popup x:Name="ReportPopup" VerticalOffset="88" HorizontalOffset="350">
             <Grid x:Name="ReportPopupGrid">
-                <!--
-            <Popup.ChildTransitions>
-                <TransitionCollection>
-                    <PaneThemeTransition />
-                </TransitionCollection>
-            </Popup.ChildTransitions>
-            -->
                 <Border BorderBrush="Black" Background="Black" BorderThickness="2" Width="800" Height="642">
                     <StackPanel>
                         <StackPanel.Background>
@@ -366,9 +359,6 @@
             <TextBlock x:Name="title" Grid.Row="1" Grid.Column="1" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Text="SIU 311 Maintenence Reporting" Margin="0,-11,0,37"/>
             <!--<Image x:Name="SliderLogo" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Source="Assets/PageLogo.png" Margin="38,6,948,0" Height="37"/>-->
 
-            <TextBlock x:Name="rvtb" Grid.Row="0" Grid.Column="1" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Text="Record Video" Margin="875,0,0,1" ToolTipService.ToolTip="Click to recors a video"/>
-            <Button x:Name="rvb" Click="CaptureVideo_Click" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource AppBarButtonStyle}" Foreground="White" FontFamily="Segoe UI Symbol" Content="&#xE116;" Margin="886,0,8,0"/>
-
             <TextBlock x:Name="tptb" Grid.Row="0" Grid.Column="2" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Text="Take Photo" Margin="0,0,68,64" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
             <Button x:Name="tpb" Click="CapturePhoto_Click" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource AppBarButtonStyle}" Foreground="White" FontFamily="Segoe UI Symbol" Content="&#xE114;" Margin="30,0,-30,0"/>
 
@@ -688,16 +678,6 @@
 
                         </Grid>
 
-                        <TextBlock x:Name="PhotoBlock" Grid.Column="3" FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Width="266" Margin="50,0,0,743" Visibility="Visible"/>
-                        <Grid x:Name="PhotoGrid" Grid.Column="3" VerticalAlignment="Top">
-                            <Image x:Name="CapturedPhoto" AutomationProperties.Name="A placeholder image" Source="Assets/ImagePlaceHolder.png"  Height="575" Margin="35,-22,29,0" Visibility="Visible"/>
-                        </Grid>
-                        <TextBlock x:Name="VideoBlock" Grid.Column="4" FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Width="266" Margin="50,0,0,743" Visibility="Visible"/>
-                        <Grid x:Name="VideoGrid" Grid.Column="4" VerticalAlignment="Top">
-                            <MediaElement   x:Name="CapturedVideo" AutoPlay="True" Height="400" Margin="25,0,24,0" Visibility="Collapsed"/>
-                            <Image          x:Name="CapturedVideoHolder" AutomationProperties.Name="A placeholder image waiting for video" Source="Assets/VideoPlaceHolder.png"  Height="575" Margin="45,-28,34,0" Visibility="Visible"/>
-                        </Grid>
-
                         <TextBlock x:Name="QueuedListBlock" FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="266" Margin="0,0,0,0" Visibility="Visible" Grid.Column="6"/>
                         <Grid x:Name="QueuedGrid" Grid.Column="5">
                             <Grid.RowDefinitions>
@@ -747,12 +727,6 @@
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="mrb" Storyboard.TargetProperty="Visibility">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="rvtb" Storyboard.TargetProperty="Visibility">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
-                        </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="rvb" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tptb" Storyboard.TargetProperty="Visibility">
