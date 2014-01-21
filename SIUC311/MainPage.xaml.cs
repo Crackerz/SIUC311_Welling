@@ -1233,7 +1233,7 @@ namespace SIUC311
 
                 BitmapImage bimage;
 
-                if (photoObject != null)
+                if (photoObject != null && photoObject.ReportPhoto != null)
                 {
                     bimage = await ByteToImage(photoObject.ReportPhoto);
                 }
