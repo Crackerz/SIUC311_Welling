@@ -1954,7 +1954,6 @@ namespace SIUC311
             {
                 //StatusBlock.Text = "Access to user information is disabled by the user or administrator";
                 DomainNameBlock.Text = "Unknown";
-                PopupDomainNameBlock.Text = "Unknown";
             }
             else
             {
@@ -1968,13 +1967,11 @@ namespace SIUC311
                     // The user or administrator has disabled the privacy setting 
                     //StatusBlock.Text = "No DNS domain name returned for the current user.";
                     DomainNameBlock.Text = "Unknown";
-                    PopupDomainNameBlock.Text = "Unknown";
                 }
                 else
                 {
                     //StatusBlock.Text = "Domain name returned for the current user.";
                     DomainNameBlock.Text = dns;
-                    PopupDomainNameBlock.Text = dns;
                 }
             }
         }

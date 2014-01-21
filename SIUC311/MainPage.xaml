@@ -227,7 +227,6 @@
                                     </Grid.ColumnDefinitions>
                                     <TextBlock x:Name="PopupUserNameBlock" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="16" Text="USERNAME" Visibility="Visible" Grid.Row="0" Grid.Column="0" Foreground="Black"/>
                                     <TextBlock x:Name="PopupPermissionsBlock" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="16" Text="" Visibility="Visible" Grid.Row="0" Grid.Column="1" Width="52" Foreground="Blue"/>
-                                    <TextBlock x:Name="PopupDomainNameBlock" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="16" Text="DOMAIN" Visibility="Visible" Grid.Row="1" Grid.Column="0" Foreground="Black"/>
                                 </Grid>
 
                                 <TextBlock x:Name="TypeBlock" FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Width="253" Visibility="Visible" Grid.Column="0" Grid.Row="0" Foreground="Black" />
